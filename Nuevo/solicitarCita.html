@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Solicitar Cita</title>
+</head>
+<body>
+
+    <h1>Solicitar Cita</h1>
+
+    <form action="guardarcita.php" method="POST">
+        <label for="marca">Tipo de moto:</label>
+        <select id="marca" name="marca" required>
+            <option value="BMW">BMW</option>
+            <option value="Ducati">Ducati</option>
+        </select><br><br>
+
+        <label for="modelo">Modelo:</label>
+        <input type="text" id="modelo" name="modelo" required><br><br>
+
+        <label for="cliente">Nombre Cliente:</label>
+        <input type="text" id="cliente" name="cliente" required><br><br>
+
+        <label for="fecha">Fecha de la cita:</label>
+        <input type="date" id="fecha" name="fecha" required><br><br>
+
+        <label for="hora">Hora de la cita:</label>
+        <input type="time" id="hora" name="hora" required><br><br>
+
+        <label for="mecanico">Mecánico disponible:</label>
+        <select id="mecanico" name="mecanico" required>
+            <option value="Mecánico 1">Mecánico 1</option>
+            <option value="Mecánico 2">Mecánico 2</option>
+            <option value="Mecánico 3">Mecánico 3</option>
+        </select><br><br>
+
+        <input type="submit" value="Solicitar Cita">
+    </form>
+
+</body>
+</html>
+
