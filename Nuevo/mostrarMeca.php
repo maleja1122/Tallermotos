@@ -1,14 +1,10 @@
 <?php
-require_once "cita.php";
-require_once("cliente.php");
-require_once("mecanico.php");
-require_once("moto.php");
-
-$cita = cita::mostrarCita();
+require_once "mecanico.php";
+$mecanicos = mecanico:: mostrarMeca();
 ?>
 <html>
 <head>
-    <title>Lista de citas</title>
+    <title>Lista de Administradores</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap4.min.css">
 </head>
@@ -16,21 +12,19 @@ $cita = cita::mostrarCita();
     <table id="myTable" class="table table-striped table-bordered" style="width:90%">
         <thead>
             <tr>
-                <th>Hora/th>
-                <th>Fecha</th>
-                <th>mecanico</th>
-                <th>Cliente</th>
-                <th>Moto</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Celular</th>
+                <th>Especializacion</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($cita as $cita): ?>
+            <?php foreach ($mecanicos as $meca): ?>
                 <tr>
-                    <td><?php echo $cita['hora']; ?></td>
-                    <td><?php echo $cita['fecha']; ?></td>
-                    <td><?php echo $cita['id_cliente']; ?></td>
-                    <td><?php echo $cita['id_mecanico']; ?></td>
-                    <td><?php echo $cita['moto']; ?></td>
+                    <td><?php echo $meca['nombre']; ?></td>
+                    <td><?php echo $meca['apellido']; ?></td>
+                    <td><?php echo $meca['celular']; ?></td>
+                    <td><?php echo $meca['especializacion']; ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
@@ -45,4 +39,3 @@ $cita = cita::mostrarCita();
     </script>
 </body>
 </html>
-

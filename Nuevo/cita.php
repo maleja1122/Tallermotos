@@ -58,7 +58,7 @@ class cita{
         $this->fecha = $fecha;
         $this->id_mecanico = $id_mecanico;
         $this->id_cliente = $id_cliente;
-        $this->id_cliente = $moto;
+        $this->moto = $moto;
         
       }
       public function guardarCita() {
@@ -72,24 +72,29 @@ class cita{
             $consulta->bindParam(':moto', $this->moto);
             $consulta->execute();
             $this->id = $conexion->lastInsertId();
-            $conexion = null; // Cerrar la conexión después de la ejecución exitosa
+            $conexion = null; 
+    
+            
+            return true;
         } catch (PDOException $e) {
-            // Manejo de errores de la base de datos (puedes personalizar el manejo de errores)
+            
             echo "Error al guardar la cita: " . $e->getMessage();
+            return false;
         }
     }
+    
 
     public static function mostrarCita() {
         try {
             $conexion = new Conexion();
-            $consulta = $conexion->prepare('SELECT id, hora, fecha, id_mecanico, id_cliente, moto FROM ' . self::TABLA . ' ORDER BY id');
+            $consulta = $conexion->prepare('SELECT * FROM ' . self::TABLA . ' ORDER BY hora'); 
             $consulta->execute();
             $registros = $consulta->fetchAll();
             return $registros;
         } catch (PDOException $e) {
-            // Manejo de errores de la base de datos (puedes personalizar el manejo de errores)
+          
             echo "Error al mostrar las citas: " . $e->getMessage();
-            return []; // Devolver un array vacío en caso de error
+            
         }
     }
 }

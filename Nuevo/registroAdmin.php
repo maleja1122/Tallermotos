@@ -23,7 +23,6 @@ if(isset($_POST['registroAdmin'])) {
     // Validar el formato del email
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "El formato del email no es válido.";
-        
     }
     // Validar el formato del email
 if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {

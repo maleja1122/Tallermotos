@@ -41,7 +41,7 @@ if(isset($_POST['registro'])) {
     $contraseña_hash = password_hash($contraseña, PASSWORD_DEFAULT);
 
    
-    $consulta = $conexion->prepare("INSERT INTO cliente (nombre, apellido, celular, email, contraseña) VALUES (?, ?, ?, ?, ?)");
+    $consulta = $conexion->prepare("INSERT INTO cliente (nombre, apellido, celular, email, contrasenia) VALUES (?, ?, ?, ?, ?)");
     $consulta->bindParam(1, $nombre);
     $consulta->bindParam(2, $apellido);
     $consulta->bindParam(3, $celular);
