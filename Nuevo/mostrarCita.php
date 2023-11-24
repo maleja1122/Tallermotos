@@ -1,5 +1,5 @@
 <?php
-require_once "cita.php";
+require_once ("cita.php");
 require_once("cliente.php");
 require_once("mecanico.php");
 require_once("moto.php");

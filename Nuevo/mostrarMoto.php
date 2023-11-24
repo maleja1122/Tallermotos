@@ -24,7 +24,6 @@ $motos = moto::mostrarMoto();
                     <td><?php echo $moto['placa']; ?></td>
                     <td><?php echo $moto['marca']; ?></td>
                     <td><?php echo $moto['año']; ?></td>
-                    <td><?php echo $moto['id_mecanico']; ?></td>
                     <td><?php echo $moto['id_cliente']; ?></td>
                 </tr>
             <?php endforeach; ?>

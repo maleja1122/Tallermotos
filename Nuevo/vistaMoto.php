@@ -51,9 +51,8 @@
                         ?>
                  </select>
             
-          <button type="submit" class="btn btn-primary" name="">Iniciar sesión</button>
+          <button type="submit" class="btn btn-primary" name="">Registrar Moto</button>
          
-        <p class="mt-3">¿No tienes una cuenta? <a href="registro.html">Regístrate aquí</a></p>
       </div>
     </div>
 </body>

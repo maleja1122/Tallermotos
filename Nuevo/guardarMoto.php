@@ -5,7 +5,7 @@ require_once("moto.php");
 
 //var_dump($_POST);
 
-$objMoto = new moto($_POST["placa"], $_POST["marca"], $_POST["año"], $_POST["id_mecanico"], $_POST["id_cliente"] );
+$objMoto = new moto($_POST["placa"], $_POST["marca"], $_POST["año"], $_POST["id_cliente"] );
 
 
 
@@ -14,7 +14,7 @@ $usuario_creado = true;
 
 if ($objMoto->guardarMoto()) {
     // Redirigir a la página de confirmación de usuario creado
-    header('Location: vistaMoto.php');
+    header('Location: mostrarMoto.php');
     exit(); // Asegúrate de detener la ejecución del script después de la redirección
 
 }

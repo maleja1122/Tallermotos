@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["email"]) && isset($_POST["contrasenia"])) {
         $email = $_POST["email"];
         $contrasenia = $_POST["contrasenia"];
- 
+  
         if (!empty($email) && !empty($contrasenia)) {
             $consulta = $conexion->prepare('SELECT contrasenia FROM cliente WHERE email = :email');
             $consulta->bindParam(":email", $email);
@@ -22,9 +22,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION["contrasenia"] = $email; // Almacenar el email en lugar del nombre
                 header("Location: bienvenido.php");
                 exit();
+				
             } else {
                 $_SESSION['error_mensaje'] = 'Email o contraseña incorrectos';
-                header("Location: login.html"); // Volver al formulario de inicio de sesión
+                header("Location: bienvenido.php"); // Volver al formulario de inicio de sesión
                 exit();
             }
         }

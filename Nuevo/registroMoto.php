@@ -1,35 +1,59 @@
+<?php
+    require_once("cliente.php");
+    require_once("mecanico.php");
+    $clientes = cliente::mostrar();
+    $mecanicos = mecanico::mostrarMeca();
+?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Moto</title>
+    <title>Document</title>
 </head>
 <body>
-    <h2>Registro de Moto</h2>
-    <form action="procesar_registro_moto.php" method="POST">
-        <label for="marca">Marca:</label>
-        <select id="marca" name="marca" required>
-            <option value="Ducati">Ducati</option>
-            <option value="BMW">BMW</option>
-        </select><br><br>
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <a href="loginAdmin.html" class="btn btn-secondary float-left mt-2">¿Eres administrador? Ingresa aquí</a>
+        
 
-        <label for="placa">Placa:</label>
-        <input type="text" id="placa" name="placa" required><br><br>
+        <form method="POST" action="guardarMoto.php">
+          <h2 class="mt-5 mb-4">Placa</h2>
+        
+          <div class="form-group">
+            <input type="text" class="form-control" name="placa" id="email" placeholder="Placa" required>
+          </div>
+            <hr>
 
-        <label for="ano">Año:</label>
-        <input type="number" id="ano" name="ano" required><br><br>
+            <h2 class="mt-5 mb-4">Marca</h2>
+        
+            <div class="form-group">
+            <input type="text" class="form-control" name="marca" id="email" placeholder="Placa" required>
+            </div>
+            <hr>
+            <h2 class="mt-5 mb-4">Año</h2>
+        
+            <div class="form-group">
+                <input type="number" class="form-control" name="año" id="email" placeholder="Placa" required>
+            </div>
+            <hr>
+          
 
-        <label for="cliente">Cliente:</label>
-        <select id="id_cliente" name="cliente" required>
-            <!-- Opciones del cliente, puedes obtenerlas de tu base de datos -->
-            <option value="cliente1">Cliente 1</option>
-            <option value="cliente2">Cliente 2</option>
-            <option value="cliente3">Cliente 3</option>
-            <!-- Agrega más opciones según tus clientes -->
-        </select><br><br>
-
-        <input type="submit" value="Registrar Moto">
-    </form>
+                </select>
+                    <h1 class="h3 mb-4 text-gray-800">Cliente</h1>
+                    <select class="form-select form-select mb-3" name="id_cliente">
+                    <option selected>Seleccione</option>
+                        <?php
+                        foreach ($clientes as $cliente) {
+                            echo "<option value='" . $cliente['id_cliente'] . "'>" . $cliente['nombre'] . "</option>";
+                        }
+                        ?>
+                 </select>
+            
+          <button type="submit" class="btn btn-primary" name="">Registrar Moto</button>
+         
+      </div>
+    </div>
 </body>
 </html>

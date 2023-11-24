@@ -6,7 +6,7 @@ class moto{
     private $placa;
     private $marca;
     private $año;
-    private $id_mecanico;
+
     private $id_cliente;
     
     const TABLA = 'moto';
@@ -23,9 +23,7 @@ class moto{
       public function getAño(){
         return $this ->año;
       }
-      public function getId_mecanico(){
-        return $this ->id_mecanico;
-      }
+      
       public function getId_cliente(){
         return $this ->id_cliente;
       }
@@ -44,30 +42,25 @@ class moto{
         $this->año= $año;
       }
 
-      public function setId_mecanico($id_mecanico){
-        $this->id_mecanico= $id_mecanico;
-      }
-
+  
       public function setId_cliente($id_cliente){
         $this->id_cliente= $id_cliente;
       }
       
-      public function __construct($placa,$marca,$año,$id_mecanico, $id_cliente, $id=null ){
+      public function __construct($placa,$marca,$año, $id_cliente, $id=null ){
         $this->id = $id;
         $this->placa = $placa;
         $this->marca = $marca;
         $this->año = $año;
-        $this->id_mecanico = $id_mecanico;
         $this->id_cliente = $id_cliente;
       }
       public function guardarMoto() {
         try {
             $conexion = new Conexion();
-            $consulta = $conexion->prepare('INSERT INTO moto (placa,marca,año,id_mecanico, id_cliente) VALUES (:placa, :marca, :anio, :id_mecanico, :id_cliente)');
+            $consulta = $conexion->prepare('INSERT INTO moto (placa,marca,año, id_cliente) VALUES (:placa, :marca, :anio, :id_cliente)');
             $consulta->bindParam(':placa', $this->placa);
             $consulta->bindParam(':marca', $this->marca);
             $consulta->bindParam(':anio', $this->año);
-            $consulta->bindParam(':id_mecanico', $this->id_mecanico);
             $consulta->bindParam(':id_cliente', $this->id_cliente);
             $consulta->execute();
             $conexion = null;

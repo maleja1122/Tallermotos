@@ -42,8 +42,8 @@
             <select class="form-select form-select mb-3" name="id_cliente">
             <option selected>Seleccione</option>
                 <?php
-                foreach ($clientes as $cliente) {
-                    echo "<option value='" . $cliente['id_cliente'] . "'>" . $cliente['nombre'] . "'>" . $cliente['apellido'] . "</option>";
+                 foreach ($clientes as $cliente) {
+                    echo "<option value='" . $cliente['id_cliente'] . "'>" . $cliente['nombre'] . "</option>";
                 }
                 ?>
          </select>
@@ -54,7 +54,7 @@
             <option selected>Seleccione</option>
                 <?php
                 foreach ($motos as $moto) {
-                    echo "<option value='" . $moto['id_moto'] . "'>" . $moto['marca'] . "'>" . $cliente['placa'] . "</option>";
+                    echo "<option value='" . $moto['id_moto'] . "'>" . $moto['placa'] . "</option>";
                 }
                 ?>
          </select>
